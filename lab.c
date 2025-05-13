@@ -48,7 +48,7 @@ int main()
 // buf is meant to store strings of 7 characters + null terminator (8 bytes)
 // but scanf doesn't account for this limit, it just keeps taking in input
 // with this we can edit specific memory addresses... so we can intentionally give it
-// 
+// too much input
 // so it specifically overwrites the return address with
 // our target address
 
@@ -78,7 +78,7 @@ int main()
 // need 16 bytes of whatever, and then the address of lonely
 // in little endian format so that it's stored correctly in the return address location
 
-// echo -ne "1234567890123456\x89\x51\x55\x55\x55\x55\" > exploit.bin
+// echo -ne "1234567890123456\x89\x51\x55\x55\x55\x55\x00\x00" > exploit.bin
 
 // now run it with our exploit input
 // setarch -R ./lab < exploit.bin
@@ -87,5 +87,5 @@ int main()
 
 // why does this happen?
 
-// my best guess is that return address gets overwritten, and becomes junk
+// -> return address gets overwritten, and becomes junk
 // so after runnign lonely, function tries to return to that address but that address is garbage
